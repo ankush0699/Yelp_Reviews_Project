@@ -21,8 +21,6 @@ $$;
 
 --yelp reviews table 
 
---yelp reviews table 
-
 Create or replace table yelp_reviews (review_text variant)
 COPY INTO yelp_reviews
 FROM 's3://yelpsqlproject/split_files/'
@@ -40,7 +38,9 @@ select  review_text:business_id::string as business_id
 ,analyze_sentiment(review_text) as sentiments
 from yelp_reviews
 
-----yelp_business
+    
+
+----yelp_business table
 
 Create or replace table yelp_business (business_text variant)
 
